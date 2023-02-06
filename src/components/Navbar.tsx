@@ -2,7 +2,7 @@ import Shoplogo from "../assets/boxes-icon.svg";
 
 export function Navbar() {
   return (
-    <header aria-label="Site Header" className="bg-white border-b border-gray-100">
+    <header aria-label="Site Header" className="bg-white border-b border-gray-100 sticky top-0">
       <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8">
         <div className="flex items-center">
           <button type="button" className="p-2 sm:mr-4 lg:hidden">
@@ -11,7 +11,7 @@ export function Navbar() {
             </svg>
           </button>
 
-          <a href="#" className="flex justify-center items-center gap-3">
+          <a href="/" className="flex justify-center items-center gap-3">
             <span className="sr-only">Logo</span>
             <img src={Shoplogo} alt="" width={35} />
             <span className="text-xl font-bold font-sansita italic text-gray-600">aircart</span>
@@ -31,14 +31,15 @@ export function Navbar() {
 
           <div className="ml-8 flex items-center">
             <div className="flex items-center divide-x divide-gray-100 border-x border-gray-100">
-              <span>
+              <span className="relative">
                 <a href="/cart" className="block border-b-4 border-transparent p-6 hover:border-red-700">
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="h-4 w-4 " fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
 
                   <span className="sr-only">Cart</span>
                 </a>
+                <span className="absolute flex justify-center items-center w-6 h-6 top-1 right-1 rounded-full bg-red-700 text-white">7</span>
               </span>
 
               <span>
