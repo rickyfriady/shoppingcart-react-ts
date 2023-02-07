@@ -7,5 +7,5 @@ type StoreItemsProbs = {
   imgUrl: string;
 };
 export default function StoreItem({ id, name, price, imgUrl }: StoreItemsProbs) {
-  return <Card />;
+  return <Card id={id} name={name} price={price} imgUrl={imgUrl} />;
 }
