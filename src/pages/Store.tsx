@@ -5,9 +5,9 @@ const Store = () => {
   return (
     <div>
       <h1>Store</h1>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2 lg:grid-cols-4 md:gap-4">
-        {storeItems.map((items) => (
-          <StoreItem {...items} />
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-2 lg:grid-cols-4 md:gap-4">
+        {storeItems.map((items, key) => (
+          <StoreItem key={key} {...items} />
         ))}
       </div>
     </div>
