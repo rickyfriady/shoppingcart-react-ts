@@ -44,7 +44,7 @@ function Card({ id, name, rating, price, imgUrl }: StoreItemsProbs) {
           <div className="flex items-center justify-between ">
             <span className="text-xl font-bold text-gray-900 dark:text-white">{formatCurrency(price)}</span>
             {quantity === 0 ? (
-              <DrawerMobile />
+              <DrawerMobile id={id} name={name} rating={rating} price={price} imgUrl={imgUrl} />
             ) : (
               <div className="flex justify-center items-center flex-col gap-5">
                 <div className="flex items-center border-gray-100">

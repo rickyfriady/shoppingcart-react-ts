@@ -1,6 +1,14 @@
 import { useState } from "react";
+import { formatCurrency } from "../utilities/formatCurrency";
+type StoreItemsProbs = {
+  id: number;
+  name: string;
+  rating: number;
+  price: number;
+  imgUrl: string;
+};
 
-const DrawerMobile = () => {
+const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
   const [isClick, setIsClick] = useState(false);
 
   return (
@@ -12,7 +20,8 @@ const DrawerMobile = () => {
         data-drawer-show="drawer-bottom-example"
         data-drawer-placement="bottom"
         aria-controls="drawer-bottom-example"
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           setIsClick(!isClick);
         }}
       >
@@ -25,7 +34,7 @@ const DrawerMobile = () => {
             <svg className="w-5 h-5 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path>
             </svg>
-            Bottom drawer
+            Rincian Pesanan
           </h5>
           <button
             type="button"
@@ -45,28 +54,31 @@ const DrawerMobile = () => {
             </svg>
             <span className="sr-only">Close menu</span>
           </button>
-          <p className="max-w-lg mb-6 text-sm text-gray-500 dark:text-gray-400">
-            Supercharge your hiring by taking advantage of our{" "}
-            <a href="#" className="text-blue-600 underline dark:text-blue-500 hover:no-underline">
-              limited-time sale
-            </a>
-            for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design job board.
-          </p>
-          <a
-            href="#"
-            className="px-4 py-2 mr-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          <div className="flex  justify-between items-start gap-5 mb-4 border-b-2 pb-2">
+            <img src={imgUrl} alt="drawer-img" className="w-28 h-32 object-cover" />
+            <div className="flex flex-col gap-2 justify-center items-start mr-44">
+              <span>{name}</span>
+              <span>{formatCurrency(price)}</span>
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <span>Jumlah</span>
+            <div className="flex items-center border-gray-100">
+              <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
+              <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="1" min="1" />
+              <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="mt-4 inline-flex w-full h-full justify-center items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           >
-            Learn more
-          </a>
-          <a
-            href="#"
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          >
-            Get access{" "}
+            Konfirmasi{" "}
             <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
             </svg>
-          </a>
+          </button>
         </div>
       )}
     </>
