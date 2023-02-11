@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useShoppingCart } from "../context/useShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 import DrawerMobile from "./DrawerMobile";
 
@@ -11,7 +11,9 @@ type StoreItemsProbs = {
 };
 
 function Card({ id, name, rating, price, imgUrl }: StoreItemsProbs) {
-  const [quantity, setQuantity] = useState(0);
+  const { getItemQuantity }: any = useShoppingCart();
+
+  const quantity = getItemQuantity(id);
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -44,7 +46,7 @@ function Card({ id, name, rating, price, imgUrl }: StoreItemsProbs) {
           <div className="flex items-center justify-between ">
             <span className="text-xl font-bold text-gray-900 dark:text-white">{formatCurrency(price)}</span>
             {quantity === 0 ? (
-              <DrawerMobile id={id} name={name} rating={rating} price={price} imgUrl={imgUrl} />
+              <DrawerMobile id={id}  name={name} rating={rating} price={price} imgUrl={imgUrl} />
             ) : (
               <div className="flex justify-center items-center flex-col gap-5">
                 <div className="flex items-center border-gray-100">

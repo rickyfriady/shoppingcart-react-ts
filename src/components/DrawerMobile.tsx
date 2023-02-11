@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useShoppingCart } from "../context/useShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 type StoreItemsProbs = {
   id: number;
@@ -10,6 +11,9 @@ type StoreItemsProbs = {
 
 const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
   const [isClick, setIsClick] = useState(false);
+  const { getItemQuantity, increaseCartQuantity }: any = useShoppingCart();
+
+  const quantity = getItemQuantity(id);
 
   return (
     <>
@@ -65,8 +69,16 @@ const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
             <span>Jumlah</span>
             <div className="flex items-center border-gray-100">
               <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-              <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="1" min="1" />
-              <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+              <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={quantity} min="1" />
+              <button
+                type="submit"
+                className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                onClick={() => {
+                  increaseCartQuantity(id);
+                }}
+              >
+                a
+              </button>
             </div>
           </div>
 
