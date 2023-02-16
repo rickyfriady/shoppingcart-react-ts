@@ -11,7 +11,8 @@ type StoreItemsProbs = {
 
 const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
   const [isClick, setIsClick] = useState(false);
-  const { getItemQuantity, increaseCartQuantity }: any = useShoppingCart();
+  const [dataInc, setDataInc] = useState(1);
+  const { getItemQuantity, incMobileCartQuantity }: any = useShoppingCart();
 
   const quantity = getItemQuantity(id);
 
@@ -69,15 +70,9 @@ const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
             <span>Jumlah</span>
             <div className="flex items-center border-gray-100">
               <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-              <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={quantity} min="1" />
-              <button
-                type="submit"
-                className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
-                onClick={() => {
-                  increaseCartQuantity(id);
-                }}
-              >
-                a
+              <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={dataInc} min="1" />
+              <button type="submit" className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => setDataInc(dataInc + 1)}>
+                +
               </button>
             </div>
           </div>
@@ -85,6 +80,10 @@ const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
           <button
             type="submit"
             className="mt-4 inline-flex w-full h-full justify-center items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            onClick={() => {
+              incMobileCartQuantity(id, dataInc);
+              setIsClick(!isClick);
+            }}
           >
             Konfirmasi{" "}
             <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
