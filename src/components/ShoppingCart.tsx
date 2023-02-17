@@ -1,4 +1,6 @@
 import { useShoppingCart } from "../context/useShoppingCartContext";
+import storeItems from "../data/items.json";
+import { formatCurrency } from "../utilities/formatCurrency";
 import CartItem from "./CartItem";
 
 type ShoppingCartProbs = {
@@ -7,18 +9,26 @@ type ShoppingCartProbs = {
 
 const ShoppingCart = ({ isOpen }: ShoppingCartProbs) => {
   const { closeCart, cartItems }: any = useShoppingCart();
+
+  const subTotal = cartItems.reduce((total: number, cartItem: { id: number; quantity: number }) => {
+    const items = storeItems.find((data) => data.id === cartItem.id);
+    return total + (items?.price || 0) * cartItem.quantity;
+  }, 0);
+  const taxCost = (subTotal * 10) / 100;
+  const totalCost = subTotal + taxCost;
+
   return (
     <div>
       {/* drawer */}
       {isOpen && (
         <div
           id="drawer-right-example"
-          className="fixed top-0 right-0 z-50 w-screen h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white  md:w-1/2 dark:bg-gray-800 transform-none"
+          className="fixed top-0 right-0 z-50 w-screen h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white  md:w-1/3 dark:bg-gray-800 transform-none"
           tabIndex={-1}
           aria-labelledby="drawer-right-label"
         >
           {/* head drawer */}
-          <div className="fixed top-0 w-screen md:w-1/2 overflow-hidden right-0  box-border">
+          <div className="fixed top-0 w-screen md:w-1/3 overflow-hidden right-0  box-border">
             <div className="flex justify-between px-2 xl:px-4 bg-white py-3 items-center ">
               <h5 id="drawer-right-label" className="inline-flex items-center text-base font-semibold text-gray-500 dark:text-gray-400">
                 <svg className="w-5 h-5 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -47,27 +57,27 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProbs) => {
 
           {/* body drawer */}
           <div className="h-screen bg-gray-100 pt-3 mt-10">
-            <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 overflow-y-auto">
-              <div className="rounded-lg md:w-2/3">
+            <div className="mx-auto max-w-5xl justify-center px-6 md:block  xl:px-2 overflow-y-auto">
+              <div className="rounded-lg ">
                 {cartItems.map((item: JSX.IntrinsicAttributes & { id: number; quantity: number }) => (
                   <CartItem key={item.id} {...item} />
                 ))}
               </div>
-              <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+              <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-2">
                 <div className="mb-2 flex justify-between">
                   <p className="text-gray-700">Subtotal</p>
-                  <p className="text-gray-700">$129.99</p>
+                  <p className="text-gray-700">{formatCurrency(subTotal)}</p>
                 </div>
                 <div className="flex justify-between">
-                  <p className="text-gray-700">Shipping</p>
-                  <p className="text-gray-700">$4.99</p>
+                  <p className="text-gray-700">Tax</p>
+                  <p className="text-gray-700">{formatCurrency(taxCost)}</p>
                 </div>
                 <hr className="my-4" />
                 <div className="flex justify-between">
                   <p className="text-lg font-bold">Total</p>
                   <div className="">
-                    <p className="mb-1 text-lg font-bold">$134.98 USD</p>
-                    <p className="text-sm text-gray-700">including VAT</p>
+                    <p className="mb-1 text-lg font-bold">{formatCurrency(totalCost)}</p>
+                    <p className="text-sm text-gray-700">including Tax 10%</p>
                   </div>
                 </div>
                 <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>

@@ -19,7 +19,9 @@ const CartItem = ({ id, quantity }: CartItemProbs) => {
         </div>
         <div className="mt-1 sm:mt-0 flex-1">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 uppercase">{items.name}</h2>
-          <p className="mt-1 text-xs text-gray-700">{formatCurrency(items.price)}</p>
+          <p className="mt-1 text-xs text-gray-700">
+            {formatCurrency(items.price)} x {quantity} items
+          </p>
         </div>
         <button
           type="button"
