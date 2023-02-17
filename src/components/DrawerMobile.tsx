@@ -3,13 +3,13 @@ import { useShoppingCart } from "../context/useShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 type StoreItemsProbs = {
   id: number;
-  name: string;
+  title: string;
   rating: number;
   price: number;
   imgUrl: string;
 };
 
-const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
+const DrawerMobile = ({ id, title, rating, price, imgUrl }: StoreItemsProbs) => {
   const [isClick, setIsClick] = useState(false);
   const [dataInc, setDataInc] = useState(1);
   const { getItemQuantity, incMobileCartQuantity }: any = useShoppingCart();
@@ -34,7 +34,12 @@ const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
       </button>
 
       {isClick && (
-        <div id="drawer-bottom-example" className="fixed md:hidden bottom-0 left-0 right-0 z-40 w-full p-4 overflow-y-auto transition-transform bg-white dark:bg-gray-800 transform-none" tabIndex={-1} aria-labelledby="drawer-bottom-label">
+        <div
+          id="drawer-bottom-example"
+          className="fixed md:hidden bottom-0 left-0 right-0 z-40 w-full p-4 overflow-y-auto transition-transform bg-white dark:bg-gray-800 transform-none duration-1000 ease-in-out"
+          tabIndex={-1}
+          aria-labelledby="drawer-bottom-label"
+        >
           <h5 id="drawer-bottom-label" className="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400">
             <svg className="w-5 h-5 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path>
@@ -62,7 +67,7 @@ const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
           <div className="flex  justify-between items-start gap-5 mb-4 border-b-2 pb-2">
             <img src={imgUrl} alt="drawer-img" className="w-28 h-32 object-cover" />
             <div className="flex flex-col gap-2 justify-center items-start mr-44">
-              <span>{name}</span>
+              <span>{title}</span>
               <span>{formatCurrency(price)}</span>
             </div>
           </div>
@@ -70,7 +75,7 @@ const DrawerMobile = ({ id, name, rating, price, imgUrl }: StoreItemsProbs) => {
             <span>Jumlah</span>
             <div className="flex items-center border-gray-100">
               <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-              <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={dataInc}  min="1" />
+              <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={dataInc} min="1" />
               <button type="submit" className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => setDataInc(dataInc + 1)}>
                 +
               </button>

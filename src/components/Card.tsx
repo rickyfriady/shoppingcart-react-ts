@@ -4,13 +4,13 @@ import DrawerMobile from "./DrawerMobile";
 
 type StoreItemsProbs = {
   id: number;
-  name: string;
+  title: string;
   rating: number;
   price: number;
   imgUrl: string;
 };
 
-function Card({ id, name, rating, price, imgUrl }: StoreItemsProbs) {
+function Card({ id, title, rating, price, imgUrl }: StoreItemsProbs) {
   const { getItemQuantity }: any = useShoppingCart();
 
   const quantity = getItemQuantity(id);
@@ -23,7 +23,7 @@ function Card({ id, name, rating, price, imgUrl }: StoreItemsProbs) {
         </div>
         <div className="px-5 pb-5 mt-3">
           <a href="#">
-            <h3 className="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">{name}</h3>
+            <h3 className="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">{title}</h3>
           </a>
           <div className="flex justify-between items-center  mt-2.5 mb-5">
             <div className="flex items-center">
@@ -48,7 +48,7 @@ function Card({ id, name, rating, price, imgUrl }: StoreItemsProbs) {
           </div>
           <div className="flex items-center justify-between ">
             <span className="text-xl font-bold text-gray-900 dark:text-white">{formatCurrency(price)}</span>
-            <DrawerMobile id={id} name={name} rating={rating} price={price} imgUrl={imgUrl} />
+            <DrawerMobile id={id} title={title} rating={rating} price={price} imgUrl={imgUrl} />
           </div>
         </div>
       </div>
