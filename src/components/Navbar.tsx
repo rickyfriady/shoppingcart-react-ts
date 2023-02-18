@@ -16,7 +16,7 @@ export function Navbar() {
           <a href="/" className="flex justify-center items-center gap-3">
             <span className="sr-only">Logo</span>
             <img src={Shoplogo} alt="" width={35} />
-            <span className="text-xl font-bold font-sansita italic text-gray-600">aircart</span>
+            <span className="text-xl font-bold font-sansita italic text-gray-600">Cart and Buy</span>
           </a>
         </div>
 
