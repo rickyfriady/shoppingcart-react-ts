@@ -3,7 +3,7 @@ import { Navbar } from "./components/Navbar";
 import { ShoppingCartProvider } from "./context/useShoppingCartContext";
 import About from "./pages/About";
 import Home from "./pages/Home";
-import { Index } from "./pages/Index";
+import MainApp from "./pages/MainApp";
 import Page404 from "./pages/Page404";
 import Store from "./pages/Store";
 
@@ -13,7 +13,7 @@ function App() {
       <ShoppingCartProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Index />}>
+          <Route path="/" element={<MainApp />}>
             <Route index element={<Home />} />
             <Route path="*" element={<Page404 />} />
             <Route path="/store" element={<Store />} />
