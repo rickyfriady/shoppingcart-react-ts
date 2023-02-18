@@ -4,6 +4,7 @@ import { ShoppingCartProvider } from "./context/useShoppingCartContext";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import { Index } from "./pages/Index";
+import Page404 from "./pages/Page404";
 import Store from "./pages/Store";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />}></Route>
           <Route index element={<Home />}></Route>
+          <Route path="*" element={<Page404 />}></Route>
           <Route path="/store" element={<Store />}></Route>
           <Route path="/about" element={<About />}></Route>
         </Routes>
