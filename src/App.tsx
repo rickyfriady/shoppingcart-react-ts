@@ -13,11 +13,12 @@ function App() {
       <ShoppingCartProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Index />}></Route>
-          <Route index element={<Home />}></Route>
-          <Route path="*" element={<Page404 />}></Route>
-          <Route path="/store" element={<Store />}></Route>
-          <Route path="/about" element={<About />}></Route>
+          <Route path="/" element={<Index />}>
+            <Route index element={<Home />} />
+            <Route path="*" element={<Page404 />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/about" element={<About />} />
+          </Route>
         </Routes>
       </ShoppingCartProvider>
     </div>
