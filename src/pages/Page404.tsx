@@ -1,8 +1,8 @@
 const Page404 = () => {
   return (
-    <div className="bg-gray-100 h-screen justify-center ">
-      <center className="mt-24 m-auto">
-        <svg className="emoji-404 " enableBackground="new 0 0 226 249.135" height="249.135" id="Layer_1" overflow="visible" version="1.1" viewBox="0 0 226 249.135" width="226" xmlSpace="preserve">
+    <div className="bg-gray-100 h-full max-h-fit justify-center ">
+      <center className="mt-10 m-auto ">
+        <svg className="relative animate-moona h-32 lg:h-full" enableBackground="new 0 0 226 249.135" height="249.135" id="Layer_1" overflow="visible" version="1.1" viewBox="0 0 226 249.135" width="226" xmlSpace="preserve">
           <circle cx="113" cy="113" fill="#FFE585" r="109" />
           <line enableBackground="new    " fill="none" opacity="0.29" stroke="#6E6E96" strokeLinecap="round" strokeLinejoin="round" strokeWidth="8" x1="88.866" x2="136.866" y1="245.135" y2="245.135" />
           <line enableBackground="new    " fill="none" opacity="0.17" stroke="#6E6E96" strokeLinecap="round" strokeLinejoin="round" strokeWidth="8" x1="154.732" x2="168.732" y1="245.135" y2="245.135" />
@@ -23,11 +23,11 @@ const Page404 = () => {
           />
           <circle cx="113" cy="113" fill="none" r="109" stroke="#6E6E96" strokeWidth="8" />
         </svg>
-        <div className=" tracking-widest mt-4">
-          <span className="text-gray-500 text-6xl block">
+        <div className=" tracking-widest mt-8 lg:mt-4">
+          <span className="text-gray-500 text-6xl block pb-4">
             <span>4 0 4</span>
           </span>
-          <span className="text-gray-500 text-xl">Sorry, We couldn't find what you are looking for!</span>
+          <span className="text-gray-500 text-md lg:text-xl ">Sorry, We couldn't find what you are looking for!</span>
         </div>
       </center>
       <center className="mt-6">
