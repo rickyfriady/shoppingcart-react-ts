@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useShoppingCart } from "../context/useShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 import DrawerMobile from "./DrawerMobile";
@@ -11,6 +12,7 @@ type StoreItemsProbs = {
 };
 
 function Card({ id, title, rating, price, imgUrl }: StoreItemsProbs) {
+  const [isClick, setIsClick] = useState(false);
   const { getItemQuantity }: any = useShoppingCart();
 
   const quantity = getItemQuantity(id);
