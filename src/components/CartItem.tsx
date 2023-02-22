@@ -1,5 +1,5 @@
+import useFetch from "react-fetch-hook";
 import { useShoppingCart } from "../context/useShoppingCartContext";
-import storeItems from "../data/items.json";
 import { formatCurrency } from "../utilities/formatCurrency";
 
 type CartItemProbs = {
@@ -8,17 +8,21 @@ type CartItemProbs = {
 };
 
 const CartItem = ({ id, quantity }: CartItemProbs) => {
+  const { isLoading, data }: any = useFetch("https://dummyjson.com/products");
+
+  if (isLoading) return <div>Loading</div>;
+
   const { removeFromCart }: any = useShoppingCart();
-  const items = storeItems.find((data) => data.id === id);
+  const items = data.products.find((data: any) => data.id === id);
   if (items == null) return null;
   return (
     <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md flex flex-col ">
       <div className="flex justify-between sm:justify-start gap-2 sm:gap-4 items-start">
         <div className="h-1/2 w-1/2 max-h-28 max-w-fit aspect-square">
-          <img src={items.imgUrl} alt="product-image" className="w-full h-full object-cover rounded-lg sm:w-40" />
+          <img src={items.images[0]} alt="product-image" className="w-full h-full object-cover rounded-lg sm:w-40" />
         </div>
         <div className="mt-1 sm:mt-0 flex-1">
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 uppercase">{items.name}</h2>
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 uppercase">{items.title}</h2>
           <p className="mt-1 text-xs text-gray-700">
             {formatCurrency(items.price)} x {quantity} items
           </p>

@@ -1,10 +1,29 @@
+import { useEffect, useState } from "react";
 import Shoplogo from "../assets/boxes-icon.svg";
 import { useShoppingCart } from "../context/useShoppingCartContext";
 
 export function Navbar() {
   const { openCart, cartQuantity }: any = useShoppingCart();
+  const [scrollTop, setScrollTop] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = (event: any) => {
+      setScrollTop(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // const fixedNav = document.querySelector("header")?.offsetTop;
+  // const windowOff = window.pageYOffset;
+  // console.log("fixed nav: ", fixedNav, " windows :", windowOff);
+
   return (
-    <header aria-label="Site Header" className="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <header aria-label="Site Header" className={`${scrollTop > 0 ? "header-onscroll" : "bg-white"}  border-b border-gray-100 sticky top-0 z-50`}>
       <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8">
         <div className="flex items-center">
           <button type="button" className="p-2 sm:mr-4 lg:hidden">
@@ -16,7 +35,7 @@ export function Navbar() {
           <a href="/" className="flex justify-center items-center gap-3">
             <span className="sr-only">Logo</span>
             <img src={Shoplogo} alt="" width={35} />
-            <span className="text-xl font-bold font-sansita italic text-gray-600">Cart and Buy</span>
+            <span className="text-xl font-bold font-sansita italic text-gray-600">Cart and Buy {scrollTop}</span>
           </a>
         </div>
 

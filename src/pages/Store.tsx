@@ -7,8 +7,6 @@ const Store = () => {
 
   if (isLoading) return <div>Loading</div>;
 
-  console.log(data.products[1].images[1]);
-
   return (
     <div className="mt-6">
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-2 lg:grid-cols-4 md:gap-4">
