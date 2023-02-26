@@ -4,7 +4,7 @@ import FuturedItems from "../components/FuturedItems";
 const Home = () => {
   return (
     <div>
-      <section className="relative mt-6 bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat">
+      <section className="relative mt-6 ">
         <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop>
           <source src={VideoHome} type="video/mp4" />
         </video>
@@ -22,7 +22,6 @@ const Home = () => {
       <FuturedItems />
       <section className="mt-12">
         <h1>footer</h1>
-
       </section>
     </div>
   );

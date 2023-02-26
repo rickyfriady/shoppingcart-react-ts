@@ -28,8 +28,8 @@ const FuturedItems = () => {
 
   return (
     <section className="container mt-6">
-      <div className="w-full block bg-slate-400">
-        <h1>futuredSection</h1>
+      <div className="w-full block">
+        <h1 className="text-xl font-sans">Promo Hari ini</h1>
         <Slider {...settings} className="">
           {data.map((items: JSX.IntrinsicAttributes & { id: number; title: string; price: number; image: string }) => (
             <CardFutured key={items.id} {...items} />
