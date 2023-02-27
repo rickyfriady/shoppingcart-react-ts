@@ -1,4 +1,5 @@
 import { formatCurrency } from "../utilities/formatCurrency";
+import { randomSoldUnit } from "../utilities/randomSoldUnit";
 
 type FuturedItemProbs = {
   title: string;
@@ -13,7 +14,7 @@ const CardFutured = ({ title, price, image }: FuturedItemProbs) => {
       <div className="p-4">
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
           <div className="bg-red-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style={{ width: "45%" }}>
-            45 terjual
+            {randomSoldUnit()} Terjual
           </div>
         </div>
         <p className="pt-2 text-xs dark:text-gray-300 text-gray-700">Lagi diminati</p>

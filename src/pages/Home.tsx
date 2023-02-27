@@ -1,5 +1,7 @@
 import VideoHome from "../assets/video/ecommers-video.mp4";
+import Footer from "../components/Footer";
 import FuturedItems from "../components/FuturedItems";
+import PayAndShipping from "../components/PayAndShipping";
 
 const Home = () => {
   return (
@@ -20,9 +22,8 @@ const Home = () => {
         </div>
       </section>
       <FuturedItems />
-      <section className="mt-12">
-        <h1>footer</h1>
-      </section>
+      <PayAndShipping />
+      <Footer />
     </div>
   );
 };
