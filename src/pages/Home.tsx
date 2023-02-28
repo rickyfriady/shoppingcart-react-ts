@@ -1,7 +1,7 @@
-import VideoHome from "../assets/video/ecommers-video.mp4";
-import Footer from "../components/Footer";
-import FuturedItems from "../components/FuturedItems";
-import PayAndShipping from "../components/PayAndShipping";
+import VideoHome from '../assets/video/ecommers-video.mp4';
+import Footer from '../components/Footer';
+import FuturedItems from '../components/FuturedItems';
+import PayAndShipping from '../components/PayAndShipping';
 
 const Home = () => {
   return (

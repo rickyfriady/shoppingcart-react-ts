@@ -60,20 +60,20 @@ const Footer = () => {
               <p className="font-medium">Company</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  About{" "}
+                  {' '}
+                  About{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Meet the Team{" "}
+                  {' '}
+                  Meet the Team{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  History{" "}
+                  {' '}
+                  History{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Careers{" "}
+                  {' '}
+                  Careers{' '}
                 </a>
               </nav>
             </div>
@@ -81,24 +81,24 @@ const Footer = () => {
               <p className="font-medium">Services</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  1on1 Coaching{" "}
+                  {' '}
+                  1on1 Coaching{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Company Review{" "}
+                  {' '}
+                  Company Review{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Accounts Review{" "}
+                  {' '}
+                  Accounts Review{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  HR Consulting{" "}
+                  {' '}
+                  HR Consulting{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  SEO Optimisation{" "}
+                  {' '}
+                  SEO Optimisation{' '}
                 </a>
               </nav>
             </div>
@@ -106,16 +106,16 @@ const Footer = () => {
               <p className="font-medium">Helpful Links</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Contact{" "}
+                  {' '}
+                  Contact{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  FAQs{" "}
+                  {' '}
+                  FAQs{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Live Chat{" "}
+                  {' '}
+                  Live Chat{' '}
                 </a>
               </nav>
             </div>
@@ -123,20 +123,20 @@ const Footer = () => {
               <p className="font-medium">Legal</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Privacy Policy{" "}
+                  {' '}
+                  Privacy Policy{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Terms &amp; Conditions{" "}
+                  {' '}
+                  Terms &amp; Conditions{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Returns Policy{" "}
+                  {' '}
+                  Returns Policy{' '}
                 </a>
                 <a className="hover:opacity-75" href="#">
-                  {" "}
-                  Accessibility{" "}
+                  {' '}
+                  Accessibility{' '}
                 </a>
               </nav>
             </div>
