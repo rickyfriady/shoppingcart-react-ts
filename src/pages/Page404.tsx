@@ -1,6 +1,6 @@
 const Page404 = () => {
   return (
-    <div className="bg-gray-100 h-full max-h-fit justify-center ">
+    <div className="bg-gray-100 h-[500px] md:h-screen max-h-fit justify-center ">
       <center className="mt-10 m-auto ">
         <svg className="relative animate-moona h-32 lg:h-full" enableBackground="new 0 0 226 249.135" height="249.135" id="Layer_1" overflow="visible" version="1.1" viewBox="0 0 226 249.135" width="226" xmlSpace="preserve">
           <circle cx="113" cy="113" fill="#FFE585" r="109" />
@@ -32,7 +32,7 @@ const Page404 = () => {
       </center>
       <center className="mt-6">
         <a href="/" className="text-gray-500 font-mono text-xl bg-gray-200 p-3 rounded-md hover:shadow-md">
-          Go back{" "}
+          Go back{' '}
         </a>
       </center>
     </div>

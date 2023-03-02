@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import Shoplogo from "../assets/boxes-icon.svg";
-import { useShoppingCart } from "../context/useShoppingCartContext";
+import { useEffect, useState } from 'react';
+import Shoplogo from '../../assets/boxes-icon.svg';
+import { useShoppingCart } from '../../context/useShoppingCartContext';
 
 export function Navbar() {
   const { openCart, cartQuantity }: any = useShoppingCart();
@@ -11,10 +11,10 @@ export function Navbar() {
       setScrollTop(window.scrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -23,7 +23,7 @@ export function Navbar() {
   // console.log("fixed nav: ", fixedNav, " windows :", windowOff);
 
   return (
-    <header aria-label="Site Header" className={`${scrollTop > 0 ? "header-onscroll" : "bg-white"}  border-b border-gray-100 sticky top-0 z-50`}>
+    <header aria-label="Site Header" className={`${scrollTop > 0 ? 'header-onscroll' : 'bg-white'}  border-b border-gray-100 sticky top-0 z-50`}>
       <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8">
         <div className="flex items-center">
           <button type="button" className="p-2 sm:mr-4 lg:hidden">
