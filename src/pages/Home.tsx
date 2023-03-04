@@ -1,8 +1,13 @@
 import VideoHome from '../assets/video/ecommers-video.mp4';
+import CountDown from '../components/CountDown';
 import FuturedItems from '../components/FuturedItems';
 import PayAndShipping from '../components/PayAndShipping';
 
+
+
 const Home = () => {
+
+
   return (
     <div>
       <section className="relative mt-6 ">
@@ -14,12 +19,19 @@ const Home = () => {
         <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 lg:justify-center">
           <div className="max-w-max text-center sm:text-left">
             <h1 className="text-xl font-extrabold sm:text-5xl">Let us find your</h1>
-            <span className="text-8xl">
+            <span className="text-8xl ">
               <strong className="block font-extrabold text-rose-700">Favorite Brand.</strong>
             </span>
           </div>
         </div>
       </section>
+      <section className="mt-6 text-red-400 bg-slate-600 py-5 pl-2">
+        <div className="inline-flex flex-col text-xl shadow-md relative flip">
+          <div className="top-count">4</div>
+          <div className="bottom-count">4</div>
+        </div>
+      </section>
+      <CountDown />
       <FuturedItems />
       <PayAndShipping />
     </div>
