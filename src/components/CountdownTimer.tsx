@@ -13,11 +13,11 @@ const ExpiredNotice = () => {
 const ShowCounter = ({ days, hours, minutes, seconds }: any) => {
   return (
     <div className="flex justify-center items-center font-bold text-xl leading-7 p-2 w-min border-[#ebebeb no-underline ">
-      <DateTimeDisplay value={hours} type={'jam'} isDanger={false} flip={false} />
+      <DateTimeDisplay value={hours} before={hours} type={'jam'} isDanger={false} flip={false} />
       <p>:</p>
-      <DateTimeDisplay value={minutes} type={'Min'} isDanger={false} flip={false} />
+      <DateTimeDisplay value={minutes} before={minutes} type={'Min'} isDanger={false} flip={false} />
       <p>:</p>
-      <DateTimeDisplay value={seconds} type={'detik'} isDanger={false} flip={true} />
+      <DateTimeDisplay value={seconds} before={seconds} type={'detik'} isDanger={false} flip={true} />
     </div>
   );
 };

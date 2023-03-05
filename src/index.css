@@ -27,11 +27,11 @@
   }
 
   .flip::before {
-    @apply absolute content-[attr(before)] w-full animate-flipUpAnim origin-bottom;
+    @apply absolute content-[attr(data-before)] w-full animate-flipUpAnim origin-bottom;
   }
 
   .flip::after {
-    @apply absolute bottom-0 content-[attr(before)] w-full animate-flipDownAnim origin-top;
+    @apply absolute bottom-0 content-[attr(data-before)] w-full animate-flipDownAnim origin-top;
     transform: rotateX(90deg);
   }
 
