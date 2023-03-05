@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import CardFutured from './CardFutured';
+import CountdownTimer from './CountdownTimer';
 
 type FuturedItemProbs = {
   id: number;
@@ -12,6 +13,12 @@ type FuturedItemProbs = {
 };
 
 const FuturedItems = () => {
+  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
+  const SEVEN_DAYS_IN_MS = 7 * 24 * 60 * 60 * 1000;
+  const NOW_IN_MS = new Date().getTime();
+
+  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+
   const settings: any = {
     dots: false,
     infinite: false,
@@ -57,7 +64,10 @@ const FuturedItems = () => {
   return (
     <section className="container mt-6">
       <div className="w-full block">
-        <h1 className="text-xl font-sans">Promo Hari ini</h1>
+        <div className="flex justify-start items-center">
+          <h1 className="text-xl font-sans">Promo Hari ini</h1>
+          <CountdownTimer targetDate={dateTimeAfterThreeDays} />
+        </div>
         <Slider {...settings}>
           <div className="invisible cursor-pointer relative mx-auto transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg">
             <img className="h-36 w-full object-cover object-center" src="" alt={`Product-image`} />

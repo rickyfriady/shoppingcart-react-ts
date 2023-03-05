@@ -9,12 +9,7 @@ const CountDown = () => {
   const dateTimeAfterSevenDays = NOW_IN_MS + SEVEN_DAYS_IN_MS;
   return (
     <div>
-      <h1>Countdown Timer</h1>
-
-      <h2>Expires after 3 days!!!</h2>
       <CountdownTimer targetDate={dateTimeAfterThreeDays} />
-
-      <h2>Expires after 7 days!!!</h2>
       <CountdownTimer targetDate={dateTimeAfterSevenDays} />
     </div>
   );

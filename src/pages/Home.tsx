@@ -3,11 +3,7 @@ import CountDown from '../components/CountDown';
 import FuturedItems from '../components/FuturedItems';
 import PayAndShipping from '../components/PayAndShipping';
 
-
-
 const Home = () => {
-
-
   return (
     <div>
       <section className="relative mt-6 ">
@@ -25,13 +21,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="mt-6 text-red-400 bg-slate-600 py-5 pl-2">
-        <div className="inline-flex flex-col text-xl shadow-md relative flip">
-          <div className="top-count">4</div>
-          <div className="bottom-count">4</div>
-        </div>
-      </section>
-      <CountDown />
       <FuturedItems />
       <PayAndShipping />
     </div>

@@ -1,8 +1,11 @@
-const DateTimeDisplay = ({ value, type, isDanger }: any) => {
+const DateTimeDisplay = ({ value, type, isDanger, flip }: any) => {
   return (
-    <div className={`leading-5 py-0 px-3 items-center flex  flex-col`}>
-      <p className="m-0">{value}</p>
-      <span className="uppercase text-xs leading-4">{type}</span>
+    <div className={`leading-5 py-0 px-3 items-center flex flex-col `}>
+      <div className={`inline-flex flex-col text-red-400 text-xl shadow-md relative ${flip ? 'flip' : ''} `} before={value}>
+        <div className="top-count ">{value}</div>
+        <div className="bottom-count">{value}</div>
+      </div>
+      <span className="uppercase text-xs leading-1 pt-1">{type}</span>
     </div>
   );
 };

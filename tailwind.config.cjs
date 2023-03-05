@@ -8,8 +8,8 @@ module.exports = {
       },
       animation: {
         moona: 'moon404 2.5s infinite',
-        flipUpAnim: 'flipUp 1s ease-in',
-        flipDownAnim: 'flipDown 1s ease-out 1s',
+        flipUpAnim: 'flipUp 1s ease-in infinite',
+        flipDownAnim: 'flipDown 1s ease-out 1s infinite',
       },
       keyframes: {
         moon404: {

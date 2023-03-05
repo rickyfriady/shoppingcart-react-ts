@@ -21,28 +21,28 @@
 @layer components {
   .top-count,
   .bottom-count,
-  .flipDownclass,
-  .flipUpclass {
+  .flip::after,
+  .flip::before {
     @apply h-3 leading-4 p-2 overflow-hidden;
   }
 
-  .flipUpclass {
-    @apply absolute content-["4"] w-full animate-flipUpAnim origin-bottom;
+  .flip::before {
+    @apply absolute content-[attr(before)] w-full animate-flipUpAnim origin-bottom;
   }
 
-  .flipDownclass {
-    @apply absolute bottom-0 content-["4"] w-full animate-flipDownAnim origin-top;
+  .flip::after {
+    @apply absolute bottom-0 content-[attr(before)] w-full animate-flipDownAnim origin-top;
     transform: rotateX(90deg);
   }
 
   .top-count,
-  .flipUpclass {
+  .flip::before {
     @apply bg-[#f7f7f7f7] rounded-t-md;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .bottom-count,
-  .flipDownclass {
+  .flip::after {
     @apply bg-white flex items-end rounded-b-md;
   }
 }
