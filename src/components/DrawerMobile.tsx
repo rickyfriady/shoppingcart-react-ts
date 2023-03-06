@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useShoppingCart } from "../context/useShoppingCartContext";
-import { formatCurrency } from "../utilities/formatCurrency";
+import { useState } from 'react';
+import { useShoppingCart } from '../context/useShoppingCartContext';
+import { formatCurrency } from '../utilities/formatCurrency';
 type StoreItemsProbs = {
   id: number;
   title: string;
@@ -10,11 +10,13 @@ type StoreItemsProbs = {
 };
 
 const DrawerMobile = ({ id, title, rating, price, imgUrl }: StoreItemsProbs) => {
-  const [isClick, setIsClick] = useState(false);
-  const [dataInc, setDataInc] = useState(1);
-  const { getItemQuantity, incMobileCartQuantity }: any = useShoppingCart();
-
+  const { getItemQuantity, incMobileCartQuantity, decMobileCartQuantity }: any = useShoppingCart();
   const quantity = getItemQuantity(id);
+
+  const [isClick, setIsClick] = useState(false);
+  const [option, setOption] = useState('inc');
+
+  const [dataInc, setDataInc] = useState(quantity || 1);
 
   return (
     <>
@@ -34,7 +36,7 @@ const DrawerMobile = ({ id, title, rating, price, imgUrl }: StoreItemsProbs) => 
       </button>
       <div
         id="drawer-bottom-example"
-        className={`fixed md:hidden bottom-0 left-0 right-0 z-40 w-full p-4 overflow-y-auto transition-all bg-white dark:bg-gray-800 transform-none duration-500 ease-in-out ${isClick ? "bottom-0" : "-bottom-full"}`}
+        className={`fixed md:hidden bottom-0 left-0 right-0 z-40 w-full p-4 overflow-y-auto transition-all bg-white dark:bg-gray-800 transform-none duration-500 ease-in-out ${isClick ? 'bottom-0' : '-bottom-full'}`}
         tabIndex={-1}
         aria-labelledby="drawer-bottom-label"
       >
@@ -72,9 +74,25 @@ const DrawerMobile = ({ id, title, rating, price, imgUrl }: StoreItemsProbs) => 
         <div className="flex justify-between">
           <span>Jumlah</span>
           <div className="flex items-center border-gray-100">
-            <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-            <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={dataInc} min="1" />
-            <button type="submit" className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => setDataInc(dataInc + 1)}>
+            <button
+              type="submit"
+              className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+              onClick={() => {
+                setDataInc(dataInc - 1);
+                setOption('dec');
+              }}
+            >
+              -
+            </button>
+            <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={dataInc} min="1" minLength={1} />
+            <button
+              type="submit"
+              className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+              onClick={() => {
+                setDataInc(dataInc + 1);
+                setOption('inc');
+              }}
+            >
               +
             </button>
           </div>
@@ -84,11 +102,11 @@ const DrawerMobile = ({ id, title, rating, price, imgUrl }: StoreItemsProbs) => 
           type="submit"
           className="mt-4 inline-flex w-full h-full justify-center items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           onClick={() => {
-            incMobileCartQuantity(id, dataInc);
+            option == 'dec' ? decMobileCartQuantity(id, dataInc) : incMobileCartQuantity(id, dataInc);
             setIsClick(!isClick);
           }}
         >
-          Konfirmasi{" "}
+          Konfirmasi
           <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
           </svg>

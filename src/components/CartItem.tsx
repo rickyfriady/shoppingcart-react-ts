@@ -1,6 +1,6 @@
-import useFetch from "react-fetch-hook";
-import { useShoppingCart } from "../context/useShoppingCartContext";
-import { formatCurrency } from "../utilities/formatCurrency";
+import useFetch from 'react-fetch-hook';
+import { useShoppingCart } from '../context/useShoppingCartContext';
+import { formatCurrency } from '../utilities/formatCurrency';
 
 type CartItemProbs = {
   id: number;
@@ -8,9 +8,11 @@ type CartItemProbs = {
 };
 
 const CartItem = ({ id, quantity }: CartItemProbs) => {
-  const { isLoading, data }: any = useFetch("https://dummyjson.com/products");
+  const { isLoading, data }: any = useFetch('https://dummyjson.com/products');
 
   if (isLoading) return <div>Loading</div>;
+
+  const { increaseCartQuantity, decreaseCartQuantity }: any = useShoppingCart();
 
   const { removeFromCart }: any = useShoppingCart();
   const items = data.products.find((data: any) => data.id === id);
@@ -48,9 +50,25 @@ const CartItem = ({ id, quantity }: CartItemProbs) => {
           <span className="text-lg">{formatCurrency(items.price * quantity)}</span>
         </div>
         <div className="flex items-center border-gray-100">
-          <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
+          <button
+            type="button"
+            className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+            onClick={() => {
+              decreaseCartQuantity(id);
+            }}
+          >
+            -
+          </button>
           <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={quantity} min="1" />
-          <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+          <button
+            type="button"
+            className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+            onClick={() => {
+              increaseCartQuantity(id);
+            }}
+          >
+            +
+          </button>
         </div>
       </div>
     </div>

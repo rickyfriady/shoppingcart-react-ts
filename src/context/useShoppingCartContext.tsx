@@ -1,6 +1,6 @@
-import { ReactNode, createContext, useContext, useState } from "react";
-import ShoppingCart from "../components/ShoppingCart";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { ReactNode, createContext, useContext, useState } from 'react';
+import ShoppingCart from '../components/ShoppingCart';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 type ShoppingCartProviderProb = {
   children: ReactNode;
@@ -31,7 +31,7 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProb) {
   const [isOpen, setIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useLocalStorage<CartItems[]>("shopping-cart", []);
+  const [cartItems, setCartItems] = useLocalStorage<CartItems[]>('shopping-cart', []);
 
   const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0);
 
@@ -89,6 +89,22 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProb) {
     });
   }
 
+  function decMobileCartQuantity(id: number, value: number) {
+    setCartItems((currentItems) => {
+      if (currentItems.find((item) => item.id === id)?.quantity === 1) {
+        return currentItems.filter((item) => item.id !== id);
+      } else {
+        return currentItems.map((item) => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity - value };
+          } else {
+            return item;
+          }
+        });
+      }
+    });
+  }
+
   function removeFromCart(id: number) {
     setCartItems((currentItems) => {
       return currentItems.filter((item) => item.id !== id);
@@ -96,7 +112,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProb) {
   }
 
   return (
-    <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, incMobileCartQuantity, decreaseCartQuantity, removeFromCart, openCart, closeCart, cartItems, cartQuantity }}>
+    <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, incMobileCartQuantity, decreaseCartQuantity, decMobileCartQuantity, removeFromCart, openCart, closeCart, cartItems, cartQuantity }}>
       {children}
       <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
