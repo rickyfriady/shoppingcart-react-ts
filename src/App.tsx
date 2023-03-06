@@ -1,11 +1,13 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import { ShoppingCartProvider } from './context/useShoppingCartContext';
-import About from './pages/About';
-import Home from './pages/Home';
-import MainApp from './pages/MainApp';
-import Page404 from './pages/Page404';
-import Store from './pages/Store';
+
+const Home = lazy(() => import('./pages/Home'));
+const MainApp = lazy(() => import('./pages/MainApp'));
+const Store = lazy(() => import('./pages/Store'));
+const Page404 = lazy(() => import('./pages/Page404'));
+const About = lazy(() => import('./pages/About'));
 
 function App() {
   return (

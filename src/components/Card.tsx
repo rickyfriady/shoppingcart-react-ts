@@ -21,7 +21,7 @@ function Card({ id, title, rating, price, imgUrl }: StoreItemsProbs) {
     <div className="max-w-2xl mx-auto">
       <div className="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
         <div className="h-[300px] aspect-square rounded-lg overflow-hidden group relative hover:scale-95 duration-700 transition-all">
-          <img className="w-full h-full object-cover  group-hover:scale-125  transition-all duration-700" src={imgUrl} />
+          <img className="w-full h-full object-cover  group-hover:scale-125  transition-all duration-700" loading="lazy" src={imgUrl} />
         </div>
         <div className="px-5 pb-5 mt-3">
           <a href="#">

@@ -10,7 +10,7 @@ type CartItemProbs = {
 const CartItem = ({ id, quantity }: CartItemProbs) => {
   const { isLoading, data }: any = useFetch('https://dummyjson.com/products');
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading) return console.log('runnig');
 
   const { increaseCartQuantity, decreaseCartQuantity }: any = useShoppingCart();
 
@@ -21,7 +21,7 @@ const CartItem = ({ id, quantity }: CartItemProbs) => {
     <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md flex flex-col ">
       <div className="flex justify-between sm:justify-start gap-2 sm:gap-4 items-start">
         <div className="h-1/2 w-1/2 max-h-28 max-w-fit aspect-square">
-          <img src={items.images[0]} alt="product-image" className="w-full h-full object-cover rounded-lg sm:w-40" />
+          <img src={items.images[0]} loading="lazy" alt="product-image" className="w-full h-full object-cover rounded-lg sm:w-40" />
         </div>
         <div className="mt-1 sm:mt-0 flex-1">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 uppercase">{items.title}</h2>

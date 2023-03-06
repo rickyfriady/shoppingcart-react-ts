@@ -65,7 +65,7 @@ const DrawerMobile = ({ id, title, rating, price, imgUrl }: StoreItemsProbs) => 
           <span className="sr-only">Close menu</span>
         </button>
         <div className="flex  justify-between items-start gap-5 mb-4 border-b-2 pb-2">
-          <img src={imgUrl} alt="drawer-img" className="w-28 h-32 object-cover" />
+          <img src={imgUrl} alt="drawer-img" loading="lazy" className="w-28 h-32 object-cover" />
           <div className="flex flex-col gap-2 justify-center items-start mr-44">
             <span>{title}</span>
             <span>{formatCurrency(price)}</span>
