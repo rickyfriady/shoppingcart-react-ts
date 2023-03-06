@@ -1,11 +1,10 @@
 import VideoHome from '../assets/video/ecommers-video.mp4';
-import CountDown from '../components/CountDown';
 import FuturedItems from '../components/FuturedItems';
 import PayAndShipping from '../components/PayAndShipping';
 
 const Home = () => {
   return (
-    <div>
+    <div className="box-border">
       <section className="relative mt-6 ">
         <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop>
           <source src={VideoHome} type="video/mp4" />

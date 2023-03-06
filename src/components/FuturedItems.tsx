@@ -53,6 +53,8 @@ const FuturedItems = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
+          dots: false,
+          arrows: false,
         },
       },
     ],
