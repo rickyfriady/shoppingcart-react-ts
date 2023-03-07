@@ -1,7 +1,7 @@
-import { useShoppingCart } from "../context/useShoppingCartContext";
-import storeItems from "../data/items.json";
-import { formatCurrency } from "../utilities/formatCurrency";
-import CartItem from "./CartItem";
+import { useShoppingCart } from '../context/useShoppingCartContext';
+import storeItems from '../data/items.json';
+import { formatCurrency } from '../utilities/formatCurrency';
+import CartItem from './CartItem';
 
 type ShoppingCartProbs = {
   isOpen: boolean;
@@ -19,16 +19,14 @@ const ShoppingCart = ({ isOpen }: ShoppingCartProbs) => {
 
   return (
     <div>
-      {/* drawer */}
-
       <div
         id="drawer-right-example"
-        className={`fixed top-0  z-50 w-screen h-screen p-4 overflow-y-auto translate-x-full bg-white  md:w-1/3 dark:bg-gray-800 transform-none ${isOpen ? "right-0" : "-right-full"} duration-500 transition-all`}
+        className={`fixed top-0  z-50 w-screen h-screen p-4 overflow-y-auto translate-x-full bg-white  md:w-1/3 dark:bg-gray-800 transform-none ${isOpen ? 'right-0' : '-right-full'} duration-500 transition-all`}
         tabIndex={-1}
         aria-labelledby="drawer-right-label"
       >
         {/* head drawer */}
-        <div className={`fixed top-0 w-screen md:w-1/3 overflow-hidden ${isOpen ? "right-0" : "-right-full"} duration-500 transition-all  box-border`}>
+        <div className={`fixed top-0 w-screen md:w-1/3 overflow-hidden ${isOpen ? 'right-0' : '-right-full'} duration-500 transition-all  box-border`}>
           <div className="flex justify-between px-2 xl:px-4 bg-white py-3 items-center ">
             <h5 id="drawer-right-label" className="inline-flex items-center text-base font-semibold text-gray-500 dark:text-gray-400">
               <svg className="w-5 h-5 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

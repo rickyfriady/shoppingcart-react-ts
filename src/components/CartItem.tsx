@@ -10,7 +10,7 @@ type CartItemProbs = {
 const CartItem = ({ id, quantity }: CartItemProbs) => {
   const { isLoading, data }: any = useFetch('https://dummyjson.com/products');
 
-  if (isLoading) return console.log('runnig');
+  if (isLoading) return <div>Loading</div>;
 
   const { increaseCartQuantity, decreaseCartQuantity }: any = useShoppingCart();
 

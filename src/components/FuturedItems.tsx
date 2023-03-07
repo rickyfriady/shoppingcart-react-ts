@@ -61,7 +61,7 @@ const FuturedItems = () => {
   };
 
   const { isLoading, data }: any = useFetch('https://fakestoreapi.com/products?limit=12');
-  if (isLoading) return <div className="h-4 w-1/4 rounded-full bg-gray-400 shadow-md "></div>;
+  if (isLoading) return <div>Loading</div>;
 
   return (
     <section className="container mt-6">
